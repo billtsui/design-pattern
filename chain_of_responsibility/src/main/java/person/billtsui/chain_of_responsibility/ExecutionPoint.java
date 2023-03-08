@@ -19,9 +19,24 @@ package person.billtsui.chain_of_responsibility;
 /**
  *
  * @author k.cui
+ *
+ * 执行点的基类
  */
-public class Start {
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+public abstract class ExecutionPoint {
+
+    private ExecutionPoint next;
+
+    /**
+     * 构建执行点的链条
+     * @param first
+     * @param executionPoints
+     */
+    public static void link(ExecutionPoint first, ExecutionPoint... executionPoints) {
+        ExecutionPoint head = first;
+        for (ExecutionPoint nextExecutionPoint : executionPoints) {
+            head.next = nextExecutionPoint;
+            head = nextExecutionPoint;
+        }
     }
+
 }
