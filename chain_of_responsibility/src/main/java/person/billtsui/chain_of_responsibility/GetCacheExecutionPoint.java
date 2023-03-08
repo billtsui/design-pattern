@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 k.cui
+ * Copyright (C) 2023 Bill Tsui <dhubilltsui@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,29 +14,23 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package person.billtsui.chain_of_responsibility;
 
 /**
- *
- * @author k.cui
- *
- * 执行点的基类
+ * @author Bill Tsui <dhubilltsui@gmail.com>
+ * @version 1.0.0
+ * @date Mar 8, 2023
+ * @description
  */
-public abstract class ExecutionPoint {
-
-    private ExecutionPoint next;
+public class GetCacheExecutionPoint extends AbstractExecutionPoint {
 
     /**
-     * 构建执行点的链条
-     * @param first
-     * @param executionPoints
+     * 从Redis中获取数据
      */
-    public static void link(ExecutionPoint first, ExecutionPoint... executionPoints) {
-        ExecutionPoint head = first;
-        for (ExecutionPoint nextExecutionPoint : executionPoints) {
-            head.next = nextExecutionPoint;
-            head = nextExecutionPoint;
-        }
+    @Override
+    public void exec() {
+        System.out.println("Get cache from Redis.");
+        this.execNext();
     }
-
 }

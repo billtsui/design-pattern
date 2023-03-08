@@ -17,20 +17,26 @@
 package person.billtsui.chain_of_responsibility;
 
 /**
- *
  * @author Bill Tsui <dhubilltsui@gmail.com>
  * @version 1.0.0
  * @date Mar 8, 2023
- * @description 职责链模式启动类
+ * @description
  */
-public class Start {
+public class ProcessingDataExecutionPoint extends AbstractExecutionPoint {
 
-    public static void main(String[] args) {
-        AbstractExecutionPoint first = new GetCacheExecutionPoint();
+    @Override
+    public void exec() {
+        System.out.println("Processing data");
+        this.execNext();
+    }
 
-        AbstractExecutionPoint.link(first, new ProcessingDataExecutionPoint(),
-                 new FilteringDataExecutionPoint(), new SortingDataExecutionPoint());
-
-        first.exec();
+    /**
+     * 职责链上的任一一个节点都可以打断链，停止向下执行
+     */
+    @Override
+    public void execNext() {
+        if(true){
+            System.out.println("Stop ProcessDataExecutionPoint,broken chain");
+        }
     }
 }

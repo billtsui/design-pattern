@@ -17,20 +17,40 @@
 package person.billtsui.chain_of_responsibility;
 
 /**
- *
  * @author Bill Tsui <dhubilltsui@gmail.com>
  * @version 1.0.0
  * @date Mar 8, 2023
- * @description 职责链模式启动类
+ * @description 执行点基类。执行点就是职责链上的执行点位
  */
-public class Start {
+public abstract class AbstractExecutionPoint {
 
-    public static void main(String[] args) {
-        AbstractExecutionPoint first = new GetCacheExecutionPoint();
+    private AbstractExecutionPoint next;
 
-        AbstractExecutionPoint.link(first, new ProcessingDataExecutionPoint(),
-                 new FilteringDataExecutionPoint(), new SortingDataExecutionPoint());
+    /**
+     * 构建职责链
+     *
+     * @param first 链的起始节点
+     * @param executionPoints 后续节点
+     */
+    public static void link(AbstractExecutionPoint first, AbstractExecutionPoint... executionPoints) {
+        AbstractExecutionPoint head = first;
+        for (AbstractExecutionPoint nextExecutionPoint : executionPoints) {
+            head.next = nextExecutionPoint;
+            head = nextExecutionPoint;
+        }
+    }
 
-        first.exec();
+    /**
+     * 抽象的执行方法，子类实现具体的功能
+     */
+    public abstract void exec();
+
+    /**
+     * 执行下一个point
+     */
+    public void execNext() {
+        if (null != next) {
+            next.exec();
+        }
     }
 }

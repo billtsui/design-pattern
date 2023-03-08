@@ -17,20 +17,16 @@
 package person.billtsui.chain_of_responsibility;
 
 /**
- *
  * @author Bill Tsui <dhubilltsui@gmail.com>
  * @version 1.0.0
  * @date Mar 8, 2023
- * @description 职责链模式启动类
+ * @description
  */
-public class Start {
+public class SortingDataExecutionPoint extends AbstractExecutionPoint {
 
-    public static void main(String[] args) {
-        AbstractExecutionPoint first = new GetCacheExecutionPoint();
-
-        AbstractExecutionPoint.link(first, new ProcessingDataExecutionPoint(),
-                 new FilteringDataExecutionPoint(), new SortingDataExecutionPoint());
-
-        first.exec();
+    @Override
+    public void exec() {
+        System.out.println("Sorting data");
+        this.execNext();
     }
 }
