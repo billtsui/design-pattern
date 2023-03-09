@@ -14,43 +14,29 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package person.billtsui.chain_of_responsibility;
+package person.billtsui.designpattern.chain_of_responsibility;
 
 /**
  * @author Bill Tsui <dhubilltsui@gmail.com>
  * @version 1.0.0
  * @date Mar 8, 2023
- * @description 执行点基类。执行点就是职责链上的执行点位
+ * @description
  */
-public abstract class AbstractExecutionPoint {
+public class ProcessingDataExecutionPoint extends AbstractExecutionPoint {
 
-    private AbstractExecutionPoint next;
-
-    /**
-     * 构建职责链
-     *
-     * @param first 链的起始节点
-     * @param executionPoints 后续节点
-     */
-    public static void link(AbstractExecutionPoint first, AbstractExecutionPoint... executionPoints) {
-        AbstractExecutionPoint head = first;
-        for (AbstractExecutionPoint nextExecutionPoint : executionPoints) {
-            head.next = nextExecutionPoint;
-            head = nextExecutionPoint;
-        }
+    @Override
+    public void exec() {
+        System.out.println("Processing data");
+        this.execNext();
     }
 
     /**
-     * 抽象的执行方法，子类实现具体的功能
+     * 职责链上的任一一个节点都可以打断链，停止向下执行
      */
-    public abstract void exec();
-
-    /**
-     * 执行下一个point
-     */
+    @Override
     public void execNext() {
-        if (null != next) {
-            next.exec();
+        if(true){
+            System.out.println("Stop ProcessDataExecutionPoint,broken chain");
         }
     }
 }

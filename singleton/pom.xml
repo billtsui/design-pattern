@@ -6,11 +6,11 @@
         <artifactId>design-patterns</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>chain_of_responsibility</artifactId>
+    <artifactId>singleton</artifactId>
     <packaging>jar</packaging>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <exec.mainClass>person.billtsui.designpattern.chain_of_responsibility.Start</exec.mainClass>
+        <exec.mainClass>person.billtsui.designpattern.singleton.Start</exec.mainClass>
     </properties>
 </project>

@@ -15,22 +15,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package person.billtsui.chain_of_responsibility;
+package person.billtsui.designpattern.singleton;
 
 /**
+ *
  * @author Bill Tsui <dhubilltsui@gmail.com>
  * @version 1.0.0
- * @date Mar 8, 2023
- * @description
+ * @date Mar 9, 2023
+ * @description 单例模式启动类
  */
-public class GetCacheExecutionPoint extends AbstractExecutionPoint {
-
-    /**
-     * 从Redis中获取数据
-     */
-    @Override
-    public void exec() {
-        System.out.println("Get cache from Redis.");
-        this.execNext();
+public class Start {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
     }
 }
