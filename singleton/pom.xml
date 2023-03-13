@@ -11,6 +11,6 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <exec.mainClass>person.billtsui.designpattern.singleton.Start</exec.mainClass>
+        <exec.mainClass>person.billtsui.designpatterns.singleton.Start</exec.mainClass>
     </properties>
 </project>

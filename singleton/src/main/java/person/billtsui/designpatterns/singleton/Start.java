@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package person.billtsui.designpattern.singleton;
+package person.billtsui.designpatterns.singleton;
 
 /**
  *

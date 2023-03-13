@@ -11,6 +11,6 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <exec.mainClass>person.billtsui.designpattern.chain_of_responsibility.Start</exec.mainClass>
+        <exec.mainClass>person.billtsui.designpatterns.chain_of_responsibility.Start</exec.mainClass>
     </properties>
 </project>

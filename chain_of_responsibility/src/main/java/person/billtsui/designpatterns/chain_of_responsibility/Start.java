@@ -14,23 +14,23 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-package person.billtsui.designpattern.chain_of_responsibility;
+package person.billtsui.designpatterns.chain_of_responsibility;
 
 /**
+ *
  * @author Bill Tsui <dhubilltsui@gmail.com>
  * @version 1.0.0
  * @date Mar 8, 2023
- * @description
+ * @description 职责链模式启动类
  */
-public class GetCacheExecutionPoint extends AbstractExecutionPoint {
+public class Start {
 
-    /**
-     * 从Redis中获取数据
-     */
-    @Override
-    public void exec() {
-        System.out.println("Get cache from Redis.");
-        this.execNext();
+    public static void main(String[] args) {
+        AbstractExecutionPoint first = new GetCacheExecutionPoint();
+
+        AbstractExecutionPoint.link(first, new ProcessingDataExecutionPoint(),
+                 new FilteringDataExecutionPoint(), new SortingDataExecutionPoint());
+
+        first.exec();
     }
 }

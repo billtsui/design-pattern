@@ -14,8 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-package person.billtsui.designpattern.chain_of_responsibility;
+package person.billtsui.designpatterns.chain_of_responsibility;
 
 /**
  * @author Bill Tsui <dhubilltsui@gmail.com>
@@ -23,11 +22,21 @@ package person.billtsui.designpattern.chain_of_responsibility;
  * @date Mar 8, 2023
  * @description
  */
-public class FilteringDataExecutionPoint extends AbstractExecutionPoint {
+public class ProcessingDataExecutionPoint extends AbstractExecutionPoint {
 
     @Override
     public void exec() {
-        System.out.println("Filtering data.");
+        System.out.println("Processing data");
         this.execNext();
+    }
+
+    /**
+     * 职责链上的任一一个节点都可以打断链，停止向下执行
+     */
+    @Override
+    public void execNext() {
+        if(true){
+            System.out.println("Stop ProcessDataExecutionPoint,broken chain");
+        }
     }
 }
